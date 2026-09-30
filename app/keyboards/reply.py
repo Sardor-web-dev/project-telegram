@@ -1,14 +1,16 @@
-from aiogram.types import ReplyKeyboardMarkup
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
-def barbers_keyboard(
-        barbers: list[str]
-) -> ReplyKeyboardMarkup:
-    builder = ReplyKeyboardBuilder()
+menu = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="📝 Мои задачи")],
+        [KeyboardButton(text="📅 На неделю")],
+        [KeyboardButton(text="📂 Списки / Проекты")],
+        [KeyboardButton(text="⚙️ Настройки")]
 
-    for barber in barbers:
-        builder.button(
-            text=f"{barber}"
-        )
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=False
+)
 
-    return builder.as_markup()
+

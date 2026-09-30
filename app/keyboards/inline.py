@@ -1,14 +1,17 @@
-from aiogram.types import InlineKeyboardMarkup
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-def custom_builder() -> InlineKeyboardMarkup:
-    builder = InlineKeyboardBuilder()
+# menu = InlineKeyboardMarkup(
+#     inline_keyboard=[
+#         [InlineKeyboardButton(text="Создать задачу", callback_data="create_task")],
+#         [InlineKeyboardButton(text="Мои задачи", callback_data="my_tasks")],
+#         [InlineKeyboardButton(text="Моя статистика", callback_data="my_stats")]
+#     ],
+# )
 
-    for i in range(1, 4):
-        builder.button(
-            text=f"Button {i}",
-            callback_data=f"button {i}"
 
-        )
-
-    return builder.as_markup()
+buttons = [{"text": "📥 Показать задачи", "callback_data": "/list"},{"text": "⚙️ Настроить время","callback_data": "/settings"},{"text": "✍️ Написать в поддержку","callback_data": "https://t.me/Djamolov_Sardor"}]
+builder = InlineKeyboardBuilder()
+for btn in buttons:
+    builder.button(text=btn["text"], callback_data=btn["callback_data"])
+builder.adjust(1,2)
