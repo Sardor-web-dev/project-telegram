@@ -9,6 +9,7 @@ from aiogram import Bot, Dispatcher
 from app.handlers.start import router as start_router
 from app.handlers.help import router as help_router
 from app.handlers.tasks import router as list_router
+from app.handlers.settings import router as settings_router
 
 
 load_dotenv()
@@ -18,7 +19,7 @@ setup_logger()
 logger = logging.getLogger(__name__)
 
 dp = Dispatcher()
-dp.include_routers(start_router, help_router, list_router)
+dp.include_routers(start_router, help_router, settings_router, list_router)
 
 async def main():
     bot = Bot(token=TOKEN)

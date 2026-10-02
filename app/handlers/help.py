@@ -1,4 +1,4 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.types import Message
 
@@ -20,7 +20,6 @@ help_text = """
 /start — Перезапустить бота и открыть главное меню
 /list — Показать все твои активные задачи на сегодня
 /done — Быстро отметить задачу как выполненную
-/categories — Управление списками (Работа, Дом, Учеба)
 /settings — Настройка часового пояса и уведомлений
 /help — Показать это справочное сообщение\n
 💡 Лайфхак: Ты можешь пересылать мне сообщения из других чатов и каналов — я автоматически превращу их в твои задачи!
@@ -28,5 +27,6 @@ help_text = """
 """
 
 @router.message(Command("help"))
+@router.message(F.text == "📌 Спрака по боту")
 async def custom_handler(message: Message):
     await message.answer(help_text, reply_markup = builder.as_markup())

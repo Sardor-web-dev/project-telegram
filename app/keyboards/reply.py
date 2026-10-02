@@ -4,8 +4,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 menu = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="📝 Мои задачи")],
-        [KeyboardButton(text="📅 На неделю")],
-        [KeyboardButton(text="📂 Списки / Проекты")],
+        [KeyboardButton(text="📌 Спрака по боту")],
         [KeyboardButton(text="⚙️ Настройки")]
 
     ],
